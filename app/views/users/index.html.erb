@@ -1,0 +1,14 @@
+<div class="row">
+<h1 class="headline">Diet Till You Die</h1>
+
+<div class="col-lg-3"></div>
+<div class="col-lg-6 user-list well">
+<% @users.each  do |user| %>
+  <%= link_to user.name, user_path(user) %>
+<% end %>
+</div>
+<div class="col-lg-3"></div>
+
+
+
+</div>

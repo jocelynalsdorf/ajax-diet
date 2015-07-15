@@ -16,8 +16,29 @@
 // Whatever application styles you have go last
 // @import "base";
 
-
-.main-title {
+.well {
+  border-radius: 4px;
+}
+.headline {
   font-size: 50px;
+  text-align: center;
+}
+
+.user-list {
+ border-radius: 4px;
+}
+
+.user-info {
+  text-align: center;
+}
+
+.user-h2 {}
+.user-h3 {}
+
+.exercises-h3 {
+  text-align: center;
+}
+
+.foods-h3 {
   text-align: center;
 }
