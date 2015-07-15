@@ -8,29 +8,13 @@
 </div><!-- end of row 1-->
 
 <div class="row">
-
   <div class="col-lg-5 well food-info">
-    <h2 class="foods-h3"> Foods</h2>
-    <hr>
-    <div class="foods-area">
+    <div class="foods-area" id="food">
 
-      <table class="table table-bordered" id="food-table">
-      <thead>
-        <tr>
-          <th>Food Name</th>
-          <th>Calories</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="food-type">Apple</td>
-          <td class="food-calories">80</td>
-        </tr>
-      </tbody>
-    </table>
+      <%= render "foods/foods" %>
 
-  </div><!--end of foods list div -->
-  <p class="btn btn-default add-food-btn" id="add-food">Add Food</p>
+    <p class="btn btn-default add-food-btn"><%= link_to "Add Food", new_user_food_path(@user), id: "new-food-link", remote: true %></p>
+  </div><!--end of food-area-div -->
 </div><!--end of food main div -->
 
   <div class="col-lg-2"></div>

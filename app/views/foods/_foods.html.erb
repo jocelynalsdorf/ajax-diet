@@ -1,0 +1,9 @@
+
+  <div class="food-list-div" id="food-table_<%= @user.id %>">
+
+      <% @foods.each do |food|  %>
+      <p class="food-type"><%= food.food_name %></p>
+      <p class="food-calories"><%= food.calories %></p>
+      <% end %>
+
+</div>

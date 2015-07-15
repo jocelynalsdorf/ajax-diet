@@ -1,0 +1,6 @@
+
+<%= simple_form_for [@user, @food], remote: true  do |f| %>
+  <%= f.input :food_name %>
+  <%= f.input :calories %>
+  <%= f.submit %>
+<% end %>

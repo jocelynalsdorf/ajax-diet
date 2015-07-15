@@ -1,0 +1,8 @@
+<%= render 'layouts/errors', :object => @exercise %>
+
+
+<%= simple_form_for [@user, @exercise], remote: true do |f| %>
+  <%= f.input :description  %>
+  <%= f.input :burned %>
+  <%= f.button :submit %>
+<% end %>

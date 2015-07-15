@@ -10,11 +10,24 @@ class FoodsController < ApplicationController
   end
 
   def new
+    @user = User.find(params[:user_id])
     @food = Food.new
   end
 
   def create
-    @food = Food.new(food_params)
+    @user = User.find(params[:user_id])
+    @food = @user.foods.new(food_params)
+    if @food.save
+      respond_to do |format|
+        # flash[:notice] = "Food successfully added!"
+        format.html { redirect_to user_path(@food.user) }
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.js { render 'fail' }
+      end
+    end
   end
 
   def edit
@@ -28,13 +41,13 @@ class FoodsController < ApplicationController
   def destroy
     @food = Food.find(params[:id])
     @food.destroy
-    end
+
   end
 
 
   private
-  def exercise_params
-    params.require(:food).permit(:type, :calories)
+  def food_params
+    params.require(:food).permit(:food_name, :calories)
   end
 
 end
