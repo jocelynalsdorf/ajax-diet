@@ -42,3 +42,17 @@
 .foods-h3 {
   text-align: center;
 }
+
+.btn-default {
+  background-color: rgb(235, 235, 235);
+  color: rgb(223, 105, 26);
+  border-radius: 3px;
+  width: 100%
+}
+
+.btn-default:hover {
+  background-color: rgb(223, 105, 26);
+  color: rgb(235, 235, 235);
+  border-radius: 3px;
+  width: 100%
+}
