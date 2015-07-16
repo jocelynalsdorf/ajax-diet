@@ -2,10 +2,10 @@
   <ul class="food-list-div" id="food-table_<%= @user.id %>">
 
       <% @user.foods.each do |food|  %>
-      <li class="food-type"><span><%= food.food_name %></span> | <span><%= food.calories %></span> <span> <%= link_to "Edit", edit_user_food_path(@user, food), :class => "btn btn-primary", remote: true  %> </span> <span> <%= link_to "Delete Food", user_food_path(@user, food), :class => "btn btn-primary",
+      <li class="food-type"><%= food.food_name %> | <%= food.calories %><%= link_to "Edit", edit_user_food_path(@user, food), :class => "btn btn-primary", remote: true  %><%= link_to "Delete Food", user_food_path(@user, food), :class => "btn btn-primary",
                               :data => {:confirm => "Confirm?",
-                              :method => "delete"}, remote: true %></span></li>
- 
+                              :method => "delete"}, remote: true %></li>
+
       <% end %>
 
       </ul>
