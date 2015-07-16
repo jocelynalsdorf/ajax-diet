@@ -1,0 +1,4 @@
+
+$(".edit_food").remove();
+$("#edit_food_link").show();
+$("#food_<%= @food.id %> ").html('<%= j render(@food) %>');

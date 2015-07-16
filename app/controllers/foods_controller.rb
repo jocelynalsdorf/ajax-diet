@@ -19,7 +19,7 @@ class FoodsController < ApplicationController
     @user = User.find(params[:user_id])
     @food = @user.foods.new(food_params)
     if @food.save
-      
+
       respond_to do |format|
         format.html { redirect_to user_path(@food.user) }
         format.js
@@ -30,16 +30,33 @@ class FoodsController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:user_id])
     @food = Food.find(params[:id])
+
   end
 
   def update
+    @user = User.find(params[:user_id])
     @food = Food.find(params[:id])
+    if @food.update(food_params)
+
+      respond_to do |format|
+        format.html { redirect_to user_path(@food.user) }
+        format.js
+      end
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @user = User.find(params[:user_id])
     @food = Food.find(params[:id])
     @food.destroy
+    respond_to do |format|
+      format.html {  redirect_to user_path(@food.user) }
+      format.js
+    end
 
   end
 
