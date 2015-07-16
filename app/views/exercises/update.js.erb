@@ -1,0 +1,4 @@
+
+$(".edit_exercise").remove();
+$("#edit_exercise_link").show();
+$("#exercise_<%= @exercise.id %> ").html('<%= j render(@exercise) %>');
