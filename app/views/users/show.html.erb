@@ -19,9 +19,10 @@
      </ul>
 
 
-
-
+  <% if (@user == current_user) || (current_user && current_user.admin?) %>
     <p class="btn btn-default add-food-btn"><%= link_to "Add Food", new_user_food_path(@user), id: "new_food_link", remote: true %></p>
+  <% end %>
+
   </div><!--end of food-area-div -->
 </div><!--end of food main div -->
 
@@ -38,7 +39,9 @@
      </ul>
 
     </div><!-- end of exercise list table div -->
+    <% if (@user == current_user) || (current_user && current_user.admin?) %>
       <p class="btn btn-default add-exercise-btn"><%= link_to "Add Exercise", new_user_exercise_path(@user), id: "new_exercise_link", remote: true %></p>
+    <% end %>
   </div><!-- end of main exercise div -->
 
 </div><!-- end of row 2-->

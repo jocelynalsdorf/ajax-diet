@@ -1,5 +1,9 @@
 <li class="food-type" id="food_<%= food.id %>">
-  <%= food.food_name %> | <%= food.calories %><%= link_to "Edit", edit_user_food_path(@user, food), :id => "edit_food_link", :class => "btn btn-primary", remote: true  %><%= link_to "Delete Food", user_food_path(@user, food), :id => "delete_food_link", :class => "btn btn-primary",
+  <%= food.food_name %> | <%= food.calories %>
+
+<% if (food.user == current_user) || (current_user && current_user.admin?) %>
+  <%= link_to "Edit", edit_user_food_path(@user, food), :id => "edit_food_link", :class => "btn btn-primary", remote: true  %><%= link_to "Delete Food", user_food_path(@user, food), :id => "delete_food_link", :class => "btn btn-primary",
                         :data => {:confirm => "Confirm?",
                         :method => "delete"}, remote: true %>
+                        <% end %>
 </li>
