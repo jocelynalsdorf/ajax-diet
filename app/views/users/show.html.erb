@@ -9,6 +9,8 @@
 
 <div class="row">
   <div class="col-lg-5 well food-info">
+    <h2 class="foods-h3"> Foods</h2>
+    <hr>
     <div class="foods-area" id="food">
 
 
@@ -30,23 +32,13 @@
     <hr>
     <div class="exercises-area">
 
-      <table class="table table-bordered" id="exercise-table">
-        <thead>
-          <tr>
-            <th>Exercise Done</th>
-            <th>Calories Burned</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="exercise-type">sqats</td>
-            <td class="burned-calories">180</td>
-          </tr>
-        </tbody>
-      </table>
+
+     <ul class="exercise-list-div" id="exercise-table_<%= @user.id %>">
+       <%= render :partial => "exercises/exercise", :collection => @user.exercises %>
+     </ul>
 
     </div><!-- end of exercise list table div -->
-    <p class="btn btn-default add-exercise-btn" id="add-exercise">Add Exercise</p>
+      <p class="btn btn-default add-exercise-btn"><%= link_to "Add Exercise", new_user_exercise_path(@user), id: "new_exercise_link", remote: true %></p>
   </div><!-- end of main exercise div -->
 
 </div><!-- end of row 2-->

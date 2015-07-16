@@ -10,24 +10,50 @@ class ExercisesController < ApplicationController
   end
 
   def new
-    @exercise = Exercise.new
+    @user = User.find(params[:user_id])
+    @exercise = @user.exercises.new
   end
 
   def create
-    @exercise = Exercise.new(exercise_params)
+  @user = User.find(params[:user_id])
+    @exercise = @user.exercises.new(exercise_params)
+    if @exercise.save
+
+      respond_to do |format|
+        format.html { redirect_to user_path(@exercise.user) }
+        format.js
+      end
+    else
+      render :new
+    end
   end
 
   def edit
+    @user = User.find(params[:user_id])
     @exercise = Exercise.find(params[:id])
   end
 
   def update
+    @user= User.find(params[:user_id])
     @exercise = Exercise.find(params[:id])
-  end
+      if @exercise.update(exercise_params)
+        respond_to do |format|
+          format.html { redirect_to user_path(@exercise.user) }
+          format.js
+        end
+      else
+          render :edit
+        end
+      end
+
 
   def destroy
+    @user = User.find(params[:user_id])
     @exercise = Exercise.find(params[:id])
     @exercise.destroy
+    respond_to do |format|
+      format.html {  redirect_to user_path(@food.user) }
+      format.js
     end
   end
 

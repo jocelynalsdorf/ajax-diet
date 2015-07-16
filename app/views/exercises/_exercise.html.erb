@@ -1,0 +1,5 @@
+<li class="exercise-type" id="exercise_<%= exercise.id %>">
+  <%= exercise.description %> | <%= exercise.burned %><%= link_to "Edit", edit_user_exercise_path(@user, exercise), :id => "edit_exercise_link", :class => "btn btn-primary", remote: true  %><%= link_to "Delete Exercise", user_exercise_path(@user, exercise), :id => "delete_exercise_link", :class => "btn btn-primary",
+                        :data => {:confirm => "Confirm?",
+                        :method => "delete"}, remote: true %>
+</li>
