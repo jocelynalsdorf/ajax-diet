@@ -7,26 +7,25 @@ class FoodsController < ApplicationController
 
   def show
     @food = Food.find(params[:id])
+
   end
 
   def new
     @user = User.find(params[:user_id])
-    @food = Food.new
+    @food = @user.foods.new
   end
 
   def create
     @user = User.find(params[:user_id])
     @food = @user.foods.new(food_params)
     if @food.save
+      
       respond_to do |format|
-        # flash[:notice] = "Food successfully added!"
         format.html { redirect_to user_path(@food.user) }
         format.js
       end
     else
-      respond_to do |format|
-        format.js { render 'fail' }
-      end
+      render :new
     end
   end
 

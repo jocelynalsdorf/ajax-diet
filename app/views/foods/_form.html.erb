@@ -1,5 +1,6 @@
+<%= render 'layouts/errors', :object => @food %>
 
-<%= simple_form_for [@user, @food], remote: true  do |f| %>
+<%= simple_form_for [@user, @food], :remote => true  do |f| %>
   <%= f.input :food_name %>
   <%= f.input :calories %>
   <%= f.submit %>

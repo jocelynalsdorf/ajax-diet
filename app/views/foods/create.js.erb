@@ -1,3 +1,10 @@
+
 $("#new_food").remove()
-$("#new-food-link").show();
-$("#food-table_<%= @user.id %>").append('<%= j render(@foods) %>');
+$("#new_food_link").show();
+$("#food-table_<%= @user.id %> ").append('<li><%= @food.food_name %> | <%= @food.calories %> | <%= link_to "Edit", edit_user_food_path(@user, @food), :class => "btn btn-primary", remote: true  %> |  <%= link_to "Delete", user_food_path(@user, @food), :class => "btn btn-primary",
+                                 :data => {:confirm => "Are you sure?",
+                                 :method => "delete"}, remote: true
+                                  %></li>');
+
+
+

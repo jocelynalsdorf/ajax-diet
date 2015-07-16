@@ -1,9 +1,11 @@
 
-  <div class="food-list-div" id="food-table_<%= @user.id %>">
+  <ul class="food-list-div" id="food-table_<%= @user.id %>">
 
-      <% @foods.each do |food|  %>
-      <p class="food-type"><%= food.food_name %></p>
-      <p class="food-calories"><%= food.calories %></p>
+      <% @user.foods.each do |food|  %>
+      <li class="food-type"><span><%= food.food_name %></span> | <span><%= food.calories %></span> | <span> <%= link_to "Edit", edit_user_food_path(@user, food), :class => "btn btn-primary", remote: true  %> </span> | <span> <%= link_to "Delete Food", user_food_path(@user, food), :class => "btn btn-primary",
+                              :data => {:confirm => "Confirm?",
+                              :method => "delete"}, remote: true %></span></li>
+ 
       <% end %>
 
-</div>
+      </ul>
